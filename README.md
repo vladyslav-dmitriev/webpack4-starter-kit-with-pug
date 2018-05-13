@@ -1,6 +1,6 @@
-# Webpack Start Template
+# Webpack Starter Kit
 
-**Webpack Start Template** - стартовый шаблон для работы со сборщиком Webpack, включающий множество плагинов и их конфигурацию для быстрой и удобной работы.
+**Webpack Starter Kit** - стартовый шаблон для работы со сборщиком Webpack, включающий множество плагинов и их конфигурацию для быстрой и удобной работы.
 
 Содержит две версии запуска: `development` (запускает локальный сервер для разработки) и `production` (создает папку `build`, в которую складывает итоговые файлы).
 
@@ -29,7 +29,7 @@
 
 #### Установка
 
-* `git clone https://github.com/vladyslav-dmitriev/webpack-start-template`
+* `git clone https://github.com/vladyslav-dmitriev/webpack-starter-kit`
 * `npm install`
 
 #### Запуск
@@ -76,8 +76,6 @@
 * [ProvidePlugin](https://webpack.js.org/plugins/provide-plugin/) - встроенный в webpack плагин, автоматически загружает модули (вместо постоянного `import` и `require`)
 * [uglifyjs-webpack-plugin](https://github.com/webpack-contrib/uglifyjs-webpack-plugin) - минимизация js-файлов
 * [babel-core](https://www.npmjs.com/package/babel-core), [babel-loader](https://github.com/babel/babel-loader), [babel-preset-env](https://www.npmjs.com/package/@babel/preset-env) - установка babel для webpack
-* [script-loader](https://github.com/webpack-contrib/script-loader) - используется для глобального импорта библиотек, код добавляется инлайном в тег `<script>`, доступен в глобальном контексте, но не минимизируется Webpack‘ом
-* [imports-loader](https://github.com/webpack-contrib/imports-loader) - используется для добавления сторонних библиотек в глобальную область видимости
 
 ## Документация
 
@@ -208,7 +206,8 @@ import exec from 'script-loader!./script.js';
 Ожидается добавление следующих модулей:
 
 * [exports-loader](https://github.com/webpack-contrib/exports-loader) [javascript]
-
+* [script-loader](https://github.com/webpack-contrib/script-loader) - используется для глобального импорта библиотек, код добавляется инлайном в тег `<script>`, доступен в глобальном контексте, но не минимизируется Webpack‘ом
+* [imports-loader](https://github.com/webpack-contrib/imports-loader) - используется для добавления сторонних библиотек в глобальную область видимости
 
 Часть материала была взята [тут](http://dev-city.me/2017/08/31/webpack-config-example) и [там](https://loftblog.ru/material/1-vvedenie-v-webpack-2/), а может еще [отсюда](https://blog.zverit.com/frontend/2017/09/15/autoprefixer-webpack-config/).
 
