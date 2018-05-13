@@ -27,12 +27,12 @@
 
 ## Начало работы
 
-#### Установка
+### Установка
 
 * `git clone https://github.com/vladyslav-dmitriev/webpack-starter-kit`
 * `npm install`
 
-#### Запуск
+### Запуск
 
 * development - `npm run start`
 * production - `npm run build`
@@ -40,7 +40,7 @@
 ## Плагины и загрузчики
 
 
-#### Конфигурация
+### Конфигурация
 
 * [webpack v4.8.1](https://github.com/webpack/webpack) - последняя актуальная версия на 13.05.2018
 * [webpack-cli](https://www.npmjs.com/package/webpack-cli) - берет опции через инструмент CLI, а также через файл конфигурации и передает их в webpack для сборки
@@ -48,30 +48,30 @@
 * [rimraf](https://github.com/isaacs/rimraf) - очистка папки `build` перед сборкой production версии
 * [copy-webpack-plugin](https://github.com/webpack-contrib/copy-webpack-plugin) - копирует статические файлы и напрямую вставляет в указанное место
   
-#### HTML
+### HTML
 
 * [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) - создание html-файлов и работа с шаблонами 
 * [html-loader](https://github.com/webpack-contrib/html-loader) - загрузка html в свой javascript
   
-#### CSS  
+### CSS  
 
 * [css-loader](https://github.com/webpack-contrib/css-loader) - добавление CSS модулей в граф зависимостей
 * [style-loader](https://github.com/webpack-contrib/style-loader) - добавление css-кода в DOM-дерево в тег `˂style˃`
 * [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) - вынос подключаемого css-кода в отельные файлы
 * [postcss-loader](https://github.com/postcss/postcss-loader) - подключение в проект ~~препроцессора~~ ~~постпроцессора~~ процессора PostCSS 
 * [autoprefixer](https://github.com/postcss/autoprefixer) - автоматическое добавление вендорных префиксов
-* 
-#### Sass
+
+### Sass
 
 * [sass-loader](https://github.com/webpack-contrib/sass-loader) - компиляция Sass в CSS
 * [node-sass](https://github.com/sass/node-sass) - зависимость для sass-loader, комилирует Sass в CSS
 
-#### Шрифты и изображения
+### Шрифты и изображения
 
 * [file-loader](https://github.com/webpack-contrib/file-loader) - нужен для того, чтобы webpack мог работать с картинками как с модулями (сканирует все файлы и пытается загрузить их в папку `build`)
 * [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader) - оптимизация изображения
 
-#### Javascript
+### Javascript
 
 * [ProvidePlugin](https://webpack.js.org/plugins/provide-plugin/) - встроенный в webpack плагин, автоматически загружает модули (вместо постоянного `import` и `require`)
 * [uglifyjs-webpack-plugin](https://github.com/webpack-contrib/uglifyjs-webpack-plugin) - минимизация js-файлов
