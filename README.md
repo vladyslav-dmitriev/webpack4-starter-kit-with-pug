@@ -10,7 +10,7 @@
 
 * основан на последней версии `webpack@4.8.1`
 * позволяет быстро начать работу с webpack, правильно работает с html, css и js
-* поддерживает изображения, шрифты и сторонние библиотеки
+* поддерживает изображения, шрифты и простое подключение в проект сторонних библиотек
 * компилирует Sass в CSS
 * содержит удобные Sass `@mixin`
 * автоматически добавляет вендорные префиксы на основе базы [caniuse](https://caniuse.com/)
@@ -77,6 +77,7 @@
 * [ProvidePlugin](https://webpack.js.org/plugins/provide-plugin/) - встроенный в webpack плагин, автоматически загружает модули (вместо постоянного `import` и `require`)
 * [uglifyjs-webpack-plugin](https://github.com/webpack-contrib/uglifyjs-webpack-plugin) - минимизация js-файлов
 * [babel-core](https://www.npmjs.com/package/babel-core), [babel-loader](https://github.com/babel/babel-loader), [babel-preset-env](https://www.npmjs.com/package/@babel/preset-env) - установка babel для webpack
+* [script-loader](https://github.com/webpack-contrib/script-loader) - используется для глобального импорта библиотек, код добавляется инлайном в тег `<script>`, доступен в глобальном контексте, но не минимизируется Webpack‘ом
 
 ## Документация
 
@@ -152,7 +153,7 @@ module: {
 } 
 ```
 
-#### Использование imports-loader для отключения AMD
+#### Использование [imports-loader](https://github.com/webpack-contrib/imports-loader) для отключения AMD
 
 Импорт следующим образом поддерживает различные стили модулей, такие как AMD, CommonJS.
 
@@ -171,26 +172,23 @@ module: {
 
 Этот прием загрузки равносилен тому, как если бы загрузка происходила через тег `<script>`. Файл скрипта добавляется в бандл как строка и не минимизируется webpack-ом.
 
-```javascript
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.exec.js$/,
-        use: [ 'script-loader' ]
-      }
-    ]
-  }
-}
-
-import exec from 'script.exec.js'; // импорт в модуль
-```
-
-Или альтернативным способом, inline’ом и без добавления в конфиг:
+Способ (пример из официальной документации) добавления inline’ом и без добавления в конфиг:
 
 ```javascript
 import exec from 'script-loader!./script.js';
 ```
+
+Пример подключения библиотеки WOW.js:
+
+```javascript
+import 'animate.css';
+import test from 'script-loader!wowjs';
+
+new WOW().init();
+
+```
+
+#### Использование [exports-loader](https://github.com/webpack-contrib/exports-loader)
 
 #### hack
 
@@ -203,12 +201,6 @@ import exec from 'script-loader!./script.js';
 
 
 ## Модификация
-
-Ожидается добавление следующих модулей:
-
-* [exports-loader](https://github.com/webpack-contrib/exports-loader) [javascript]
-* [script-loader](https://github.com/webpack-contrib/script-loader) - используется для глобального импорта библиотек, код добавляется инлайном в тег `<script>`, доступен в глобальном контексте, но не минимизируется Webpack‘ом
-* [imports-loader](https://github.com/webpack-contrib/imports-loader) - используется для добавления сторонних библиотек в глобальную область видимости
 
 Часть материала взята [тут](http://dev-city.me/2017/08/31/webpack-config-example) и [там](https://loftblog.ru/material/1-vvedenie-v-webpack-2/), а может еще [отсюда](https://blog.zverit.com/frontend/2017/09/15/autoprefixer-webpack-config/).
 
