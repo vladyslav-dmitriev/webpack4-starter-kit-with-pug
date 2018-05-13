@@ -52,7 +52,7 @@
 #### HTML
 
 * [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) - создание html-файлов и работа с шаблонами 
-* [raw-loader](https://github.com/webpack-contrib/raw-loader) - livereload для html файлов
+* [html-loader](https://github.com/webpack-contrib/raw-loader) - загружает html в javascript
   
 #### CSS  
 
