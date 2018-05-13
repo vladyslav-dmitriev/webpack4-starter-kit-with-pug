@@ -29,7 +29,7 @@
 
 ### Установка
 
-* `git clone https://github.com/vladyslav-dmitriev/webpack-start-template`
+* `git clone https://github.com/vladyslav-dmitriev/webpack4-starter-kit`
 * `npm install`
 
 ### Запуск
