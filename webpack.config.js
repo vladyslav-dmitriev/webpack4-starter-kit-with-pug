@@ -32,7 +32,7 @@ const config = {
         }
       }]
     }, {
-      test: /\.(scss|sass)$/,
+      test: /\.sass$/,
       exclude: /node_modules/,
       use: [
         isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
@@ -44,7 +44,7 @@ const config = {
         },
         'postcss-loader',
         'sass-loader',
-        'resolve-url-loader'
+        // 'resolve-url-loader'
       ]
     }, {
       test: /\.(gif|png|jpe?g|svg)$/i,

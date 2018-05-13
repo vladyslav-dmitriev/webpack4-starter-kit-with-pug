@@ -12,7 +12,4 @@
 
 // new WOW.WOW().init();
 
-import './../sass/main.sass';
-
-
-[1,2,3].map(n => n + 1);
+import '../sass/main.sass';

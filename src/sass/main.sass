@@ -1,9 +1,28 @@
 @import 'fonts'
 @import 'vars'
 
-body
-    display: grid
-    transition: all .5s
-    user-select: none
-    background: linear-gradient(to bottom, white, black)
+*
+	outline: none
 
+html
+	font-size: 100%
+
+body
+    margin: 0
+    padding: 0
+    min-width: 320px
+    position: relative
+    font-size: 16px
+    overflow-x: hidden
+    font-family: $font--main
+
+header, section, footer
+	position: relative
+	overflow: hidden
+
+nav, ul
+	list-style-type: none
+	margin: 0
+
+
+@import 'media'
