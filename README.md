@@ -1,6 +1,6 @@
-# Webpack Starter Kit
+# Webpack Start Template
 
-**Webpack Starter Kit** - стартовый шаблон для работы со сборщиком Webpack, включающий множество плагинов и их конфигурацию для быстрой и удобной работы.
+**Webpack Start Template** - стартовый шаблон для работы со сборщиком Webpack, включающий множество плагинов и их конфигурацию для быстрой и удобной работы.
 
 Содержит две версии запуска: `development` (запускает локальный сервер для разработки) и `production` (создает папку `build`, в которую складывает итоговые файлы).
 
@@ -27,12 +27,12 @@
 
 ## Начало работы
 
-### Установка
+#### Установка
 
-* `git clone https://github.com/vladyslav-dmitriev/webpack-starter-kit`
+* `git clone https://github.com/vladyslav-dmitriev/webpack-start-template`
 * `npm install`
 
-### Запуск
+#### Запуск
 
 * development - `npm run start`
 * production - `npm run build`
@@ -40,7 +40,7 @@
 ## Плагины и загрузчики
 
 
-### Конфигурация
+#### Конфигурация
 
 * [webpack v4.8.1](https://github.com/webpack/webpack) - последняя актуальная версия на 13.05.2018
 * [webpack-cli](https://www.npmjs.com/package/webpack-cli) - берет опции через инструмент CLI, а также через файл конфигурации и передает их в webpack для сборки
@@ -48,40 +48,42 @@
 * [rimraf](https://github.com/isaacs/rimraf) - очистка папки `build` перед сборкой production версии
 * [copy-webpack-plugin](https://github.com/webpack-contrib/copy-webpack-plugin) - копирует статические файлы и напрямую вставляет в указанное место
   
-### HTML
+#### HTML
 
 * [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) - создание html-файлов и работа с шаблонами 
-* [html-loader](https://github.com/webpack-contrib/html-loader) - загрузка html в свой javascript
+* [raw-loader](https://github.com/webpack-contrib/raw-loader) - livereload для html файлов
   
-### CSS  
+#### CSS  
 
 * [css-loader](https://github.com/webpack-contrib/css-loader) - добавление CSS модулей в граф зависимостей
 * [style-loader](https://github.com/webpack-contrib/style-loader) - добавление css-кода в DOM-дерево в тег `˂style˃`
 * [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) - вынос подключаемого css-кода в отельные файлы
 * [postcss-loader](https://github.com/postcss/postcss-loader) - подключение в проект ~~препроцессора~~ ~~постпроцессора~~ процессора PostCSS 
 * [autoprefixer](https://github.com/postcss/autoprefixer) - автоматическое добавление вендорных префиксов
-
-### Sass
+* 
+#### Sass
 
 * [sass-loader](https://github.com/webpack-contrib/sass-loader) - компиляция Sass в CSS
 * [node-sass](https://github.com/sass/node-sass) - зависимость для sass-loader, комилирует Sass в CSS
 
-### Шрифты и изображения
+#### Шрифты и изображения
 
 * [file-loader](https://github.com/webpack-contrib/file-loader) - нужен для того, чтобы webpack мог работать с картинками как с модулями (сканирует все файлы и пытается загрузить их в папку `build`)
 * [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader) - оптимизация изображения
 
-### Javascript
+#### Javascript
 
 * [ProvidePlugin](https://webpack.js.org/plugins/provide-plugin/) - встроенный в webpack плагин, автоматически загружает модули (вместо постоянного `import` и `require`)
 * [uglifyjs-webpack-plugin](https://github.com/webpack-contrib/uglifyjs-webpack-plugin) - минимизация js-файлов
 * [babel-core](https://www.npmjs.com/package/babel-core), [babel-loader](https://github.com/babel/babel-loader), [babel-preset-env](https://www.npmjs.com/package/@babel/preset-env) - установка babel для webpack
+* [script-loader](https://github.com/webpack-contrib/script-loader) - используется для глобального импорта библиотек, код добавляется инлайном в тег `<script>`, доступен в глобальном контексте, но не минимизируется Webpack‘ом
+* [imports-loader](https://github.com/webpack-contrib/imports-loader) - используется для добавления сторонних библиотек в глобальную область видимости
 
 ## Документация
 
-### Настройка установленных плагинов
+#### Настройка установленных плагинов
 
-#### Autoprefixer
+##### Autoprefixer
 
 В файле `package.json` вот эти строки:
 
@@ -92,12 +94,12 @@
 ],
 ```
 
-#### Cжатие изображений
+##### Cжатие изображений
 
 В файле `webpack.config.json` в опциях loader'а `image-webpack-loader`.
 
 
-#### CopyWebpackPlugin
+##### CopyWebpackPlugin
 
 При возникновении необходимости напрямую скопировать файлы из папки 'src' в 'build' используется плагин `CopyWebpackPlugin`, здесь по-умолчанию он копирует папку `libs`, его настройки содержаться в файле `webpack.config.json`:
 
@@ -108,7 +110,7 @@ new CopyWebpackPlugin([{
 }]),
 ```
 
-### Подключение сторонних библиотек
+#### Подключение сторонних библиотек
 
 Не все javascript библиотеки совместимы и могут напрямую использоваться с webpack. Поэтому далее представлены способы подключения сторонних библиотек.
 
@@ -127,7 +129,7 @@ plugins:[
 })]
 ```
 
-#### Явное указание пути для импорта
+##### Явное указание пути для импорта
 
 Можно импортировать объявления примерно так:
 
@@ -136,7 +138,7 @@ import SomeComponent from 'app/lib/javascriptLib/dist/SomeComponent.min.js'; // 
 import SomeComponent from '../dist/SomeComponent.min.js'; // или даже так
 ```
 
-#### Использование imports-loader для конфигурации this
+##### Использование imports-loader для конфигурации this
 
 Устаревшие библиотеки полагаются на this будучи window объектом и это является проблемой, когда библиотека запускается в контексте CommonJS, где this равносильно module.exports. 
 
@@ -151,7 +153,7 @@ module: {
 } 
 ```
 
-#### Использование imports-loader для отключения AMD
+##### Использование imports-loader для отключения AMD
 
 Импорт следующим образом поддерживает различные стили модулей, такие как AMD, CommonJS.
 
@@ -166,7 +168,7 @@ module: {
 }
 ```
 
-#### Использование script-loader для глобального импорта библиотек
+##### Использование script-loader для глобального импорта библиотек
 
 Этот прием загрузки равносилен тому, как если бы загрузка происходила через тег `<script>`. Файл скрипта добавляется в бандл как строка и не минимизируется webpack-ом.
 
@@ -191,12 +193,12 @@ import exec from 'script.exec.js'; // импорт в модуль
 import exec from 'script-loader!./script.js';
 ```
 
-#### hack
+##### hack
 
 Одним из вариантов решения проблемы для некоторых плагинов является изменение в самом плагине `node_modules/plugin/dist.js` значения `this` на `window`. Такой подход сработал, например, при подключении к проекту [WOW.js](https://github.com/matthieua/WOW).
 
 
-### Возможные ошибки
+#### Возможные ошибки
 
 При возникновении ошибки с загруженностью порта рекомендуется закрыть все запущенные процессы для `node` и перезапустить сборку.
 
@@ -206,8 +208,7 @@ import exec from 'script-loader!./script.js';
 Ожидается добавление следующих модулей:
 
 * [exports-loader](https://github.com/webpack-contrib/exports-loader) [javascript]
-* [script-loader](https://github.com/webpack-contrib/script-loader) - используется для глобального импорта библиотек, код добавляется инлайном в тег `<script>`, доступен в глобальном контексте, но не минимизируется Webpack‘ом
-* [imports-loader](https://github.com/webpack-contrib/imports-loader) - используется для добавления сторонних библиотек в глобальную область видимости
+
 
 Часть материала была взята [тут](http://dev-city.me/2017/08/31/webpack-config-example) и [там](https://loftblog.ru/material/1-vvedenie-v-webpack-2/), а может еще [отсюда](https://blog.zverit.com/frontend/2017/09/15/autoprefixer-webpack-config/).
 

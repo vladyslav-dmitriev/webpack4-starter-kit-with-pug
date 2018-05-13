@@ -21,7 +21,7 @@ const config = {
   module: {
     rules: [{
       test: /\.html$/,
-      use: 'html-loader'
+      use: 'raw-loader'
     }, {
       test: /\.js$/,
       exclude: /node_modules/,
@@ -92,6 +92,7 @@ const config = {
       filename: 'css/[name].css',
       chunkFilename: '[id].css'
     }),
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),

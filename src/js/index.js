@@ -12,4 +12,6 @@
 
 // new WOW.WOW().init();
 
+require('../index.html');
+
 import '../sass/main.sass';
