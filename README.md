@@ -2,7 +2,7 @@
 
 **Webpack Start Template** - стартовый шаблон для работы со сборщиком Webpack, включающий множество плагинов и их конфигурацию для быстрой и удобной работы.
 
-Содержит две версии запуска: `development` (запускает локальный сервер для разработки) и `production` (создает папку `build`, в которую складывает итоговые файлы).
+Содержит две версии запуска: `development` (запускает локальный сервер для разработки) и `production` (создает папку `dist`, в которую складывает итоговые файлы).
 
 **Функции и возможности:**
 
@@ -45,7 +45,8 @@
 * [webpack v4.8.1](https://github.com/webpack/webpack) - последняя актуальная версия на 13.05.2018
 * [webpack-cli](https://www.npmjs.com/package/webpack-cli) - берет опции через инструмент CLI, а также через файл конфигурации и передает их в webpack для сборки
 * [webpack-dev-server](https://github.com/webpack/webpack-dev-server) - встроенный локальный сервер и livereload, рекомендуется в официальной документации
-* [rimraf](https://github.com/isaacs/rimraf) - очистка папки `build` перед сборкой production версии
+* [rimraf](https://github.com/isaacs/rimraf) - очистка папки `dist` перед сборкой production версии
+* [yargs](https://www.npmjs.com/package/yargs) - получение аргументов из консоли для использовании в настройке конфигурации webpack
 * [copy-webpack-plugin](https://github.com/webpack-contrib/copy-webpack-plugin) - копирует статические файлы и напрямую вставляет в указанное место
   
 #### HTML
@@ -68,7 +69,7 @@
 
 #### Шрифты и изображения
 
-* [file-loader](https://github.com/webpack-contrib/file-loader) - нужен для того, чтобы webpack мог работать с картинками как с модулями (сканирует все файлы и пытается загрузить их в папку `build`)
+* [file-loader](https://github.com/webpack-contrib/file-loader) - нужен для того, чтобы webpack мог работать с картинками как с модулями (сканирует все файлы и пытается загрузить их в папку `dist`)
 * [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader) - оптимизация изображения
 
 #### Javascript
@@ -76,8 +77,6 @@
 * [ProvidePlugin](https://webpack.js.org/plugins/provide-plugin/) - встроенный в webpack плагин, автоматически загружает модули (вместо постоянного `import` и `require`)
 * [uglifyjs-webpack-plugin](https://github.com/webpack-contrib/uglifyjs-webpack-plugin) - минимизация js-файлов
 * [babel-core](https://www.npmjs.com/package/babel-core), [babel-loader](https://github.com/babel/babel-loader), [babel-preset-env](https://www.npmjs.com/package/@babel/preset-env) - установка babel для webpack
-* [script-loader](https://github.com/webpack-contrib/script-loader) - используется для глобального импорта библиотек, код добавляется инлайном в тег `<script>`, доступен в глобальном контексте, но не минимизируется Webpack‘ом
-* [imports-loader](https://github.com/webpack-contrib/imports-loader) - используется для добавления сторонних библиотек в глобальную область видимости
 
 ## Документация
 
@@ -208,8 +207,9 @@ import exec from 'script-loader!./script.js';
 Ожидается добавление следующих модулей:
 
 * [exports-loader](https://github.com/webpack-contrib/exports-loader) [javascript]
+* [script-loader](https://github.com/webpack-contrib/script-loader) - используется для глобального импорта библиотек, код добавляется инлайном в тег `<script>`, доступен в глобальном контексте, но не минимизируется Webpack‘ом
+* [imports-loader](https://github.com/webpack-contrib/imports-loader) - используется для добавления сторонних библиотек в глобальную область видимости
 
-
-Часть материала была взята [тут](http://dev-city.me/2017/08/31/webpack-config-example) и [там](https://loftblog.ru/material/1-vvedenie-v-webpack-2/), а может еще [отсюда](https://blog.zverit.com/frontend/2017/09/15/autoprefixer-webpack-config/).
+Часть материала взята [тут](http://dev-city.me/2017/08/31/webpack-config-example) и [там](https://loftblog.ru/material/1-vvedenie-v-webpack-2/), а может еще [отсюда](https://blog.zverit.com/frontend/2017/09/15/autoprefixer-webpack-config/).
 
 Основные модули можно найти в официальном репозитории [webpack](https://github.com/webpack/webpack).

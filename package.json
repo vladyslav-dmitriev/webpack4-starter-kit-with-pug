@@ -1,7 +1,6 @@
 {
-  "name": "webpack-start-template",
-  "version": "4.8.1",
-  "description": "Simple webpack config",
+  "name": "webpack-starter-kit",
+  "version": "2.0.0",
   "main": "index.js",
   "browserslist": [
     "> 3%",
@@ -9,10 +8,10 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "rimraf build && npm install",
+    "prebuild": "rimraf dist && npm install",
     "build": "webpack --mode production --colors --progress",
-    "prestart": "rimraf public && npm install",
-    "start": "webpack-dev-server --mode development --hot --colors --progress --watch"
+    "prestart": "rimraf dist && npm install",
+    "start": "webpack-dev-server --mode development --hot --colors --progress"
   },
   "author": "Vladyslav Dmitriev",
   "license": "MIT",
@@ -31,7 +30,6 @@
     "node-sass": "^4.8.2",
     "postcss-loader": "^2.1.5",
     "raw-loader": "^0.5.1",
-    "resolve-url-loader": "^2.3.0",
     "rimraf": "^2.6.2",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",

@@ -8,7 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isDevelopment = argv.mode === 'development';
 const isProduction = !isDevelopment;
-const distPath = path.join(__dirname, '/build');
+const distPath = path.join(__dirname, '/dist');
 
 const config = {
   entry: {
@@ -21,7 +21,7 @@ const config = {
   module: {
     rules: [{
       test: /\.html$/,
-      use: 'raw-loader'
+      use: 'html-loader'
     }, {
       test: /\.js$/,
       exclude: /node_modules/,
@@ -43,15 +43,14 @@ const config = {
           }
         },
         'postcss-loader',
-        'sass-loader',
-        // 'resolve-url-loader'
+        'sass-loader'
       ]
     }, {
       test: /\.(gif|png|jpe?g|svg)$/i,
       use: [{
         loader: 'file-loader',
         options: {
-          name: 'images/[name].[ext]'
+          name: 'img/[name].[ext]'
         }
       }, {
         loader: 'image-webpack-loader',
