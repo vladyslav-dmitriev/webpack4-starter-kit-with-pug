@@ -1,0 +1,81 @@
+@import 'fonts'
+@import 'vars'
+
+*
+	outline: none
+
+html
+	font-size: 100%
+
+body
+	margin: 0
+	padding: 0
+	min-width: 320px
+	position: relative
+	font-size: 16px
+	overflow-x: hidden
+	font-family: $font--main
+
+header, section, footer
+	position: relative
+	overflow: hidden
+
+nav, ul
+	list-style-type: none
+	margin: 0
+
+/* grid */
+
+*
+	box-sizing: border-box
+
+/* Адаптивность */
+
+.price
+	display: flex
+	&__item
+		&_old
+		&_new
+	&__title
+		&_old
+		&_new
+	&__wrap
+		display: flex
+		&_old
+			position: relative
+			&::before
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 1px
+				background: #000
+				transform: rotate(15deg)
+			&::after
+				content: ''
+				position: absolute
+				top: 0
+				left: 0
+				width: 100%
+				height: 1px
+				background: #000
+				transform: rotate(-15deg)
+	&__value
+		margin-right: 5px
+		&_old
+		&_new
+	&__currency
+		&_old
+		&_new
+
+
+
+
+
+
+
+
+
+
+@import 'media'

@@ -19,9 +19,13 @@ const config = {
     path: distPath
   },
   module: {
-    rules: [{
-      test: /\.html$/,
-      use: 'html-loader'
+    rules: [
+    {
+      test: /\.pug$/,
+        use: [
+          "html-loader",
+          "pug-html-loader"
+        ]
     }, {
       test: /\.js$/,
       exclude: /node_modules/,
@@ -58,30 +62,7 @@ const config = {
         options: {
           name: 'img/[name].[ext]'
         }
-      }, {
-        loader: 'image-webpack-loader',
-        options: {
-          bypassOnDebug: true,
-          mozjpeg: {
-            progressive: true,
-            quality: 65
-          },
-          optipng: {
-            enabled: false,
-          },
-          pngquant: {
-            quality: '65-90',
-            speed: 4
-          },
-          gifsicle: {
-            interlaced: false,
-          },
-          webp: {
-            quality: 75
-          }
-        }
-      },
-      ],
+      }],
     }, {
       test: /\.(eot|ttf|woff|woff2)$/,
       use: {
@@ -93,13 +74,14 @@ const config = {
     }]
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: './src/index.pug',
+      filename: './index.html'
+    }),
+    new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
       chunkFilename: '[id].css'
-    }),
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
@@ -110,6 +92,14 @@ const config = {
       {
         from: './src/libs',
         to: 'libs'
+      },
+      {
+        from: './src/img',
+        to: 'img'
+      },
+      {
+        from: './src/fonts',
+        to: 'fonts'
       }
     ]),
   ],

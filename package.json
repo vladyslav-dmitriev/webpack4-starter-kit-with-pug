@@ -7,10 +7,8 @@
     "last 10 versions"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "rimraf dist && npm install",
+    "prebuild": "rimraf dist",
     "build": "webpack --mode production --colors --progress",
-    "prestart": "rimraf dist && npm install",
     "start": "webpack-dev-server --mode development --hot --colors --progress"
   },
   "author": "Vladyslav Dmitriev",
@@ -25,7 +23,6 @@
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.0.6",
-    "image-webpack-loader": "^4.2.0",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.8.2",
     "postcss-loader": "^2.1.5",
@@ -37,7 +34,12 @@
     "webpack": "^4.8.1",
     "webpack-cli": "^2.1.3",
     "webpack-dev-server": "^3.1.4",
-    "yargs": "^11.0.0"
+    "yargs": "^11.0.0",
+    "pug": "^2.0.3",
+    "pug-html-loader": "^1.1.5",
+    "pug-loader": "^2.4.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
 }

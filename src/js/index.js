@@ -1,11 +1,5 @@
-require('../index.html');
+require('../index.pug');
 
-/* import for libs */
+// import test from 'script-loader!simplebar';
 
-import '../sass/main.sass';
-
-;(function() {
-
-
-
-}());
+import '../sass/index.sass';
