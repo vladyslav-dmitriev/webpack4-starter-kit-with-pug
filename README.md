@@ -49,9 +49,9 @@
 * [copy-webpack-plugin](https://github.com/webpack-contrib/copy-webpack-plugin) - копирует статические файлы и напрямую вставляет в указанное место
 
 ### Pug
-* [pug]
-* [pug-html-loader]
-* [pug-loader]
+* [pug](https://github.com/pugjs/pug)
+* [pug-html-loader](https://github.com/willyelm/pug-html-loader)
+* [pug-loader](https://github.com/pugjs/pug-loader)
 
 ### HTML
 
