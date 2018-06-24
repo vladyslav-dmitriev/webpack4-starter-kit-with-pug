@@ -23,13 +23,12 @@
 `production`
 
 * минифицирует css и js файлы
-* настраиваемая автоматическая оптимизация изображений (поддерживает форматы gif, png, jpg, jpeg и svg)
 
 ## Начало работы
 
 ### Установка
 
-* `git clone https://github.com/vladyslav-dmitriev/webpack4-starter-kit`
+* `git clone https://github.com/vladyslav-dmitriev/webpack4-starter-kit-with-pug`
 * `npm install`
 
 ### Запуск
@@ -48,7 +47,12 @@
 * [rimraf](https://github.com/isaacs/rimraf) - очистка папки `dist` перед сборкой production версии
 * [yargs](https://www.npmjs.com/package/yargs) - получение аргументов из консоли для использовании в настройке конфигурации webpack
 * [copy-webpack-plugin](https://github.com/webpack-contrib/copy-webpack-plugin) - копирует статические файлы и напрямую вставляет в указанное место
-  
+
+### Pug
+* [pug]
+* [pug-html-loader]
+* [pug-loader]
+
 ### HTML
 
 * [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) - создание html-файлов и работа с шаблонами 
@@ -67,10 +71,9 @@
 * [sass-loader](https://github.com/webpack-contrib/sass-loader) - компиляция Sass в CSS
 * [node-sass](https://github.com/sass/node-sass) - зависимость для sass-loader, комилирует Sass в CSS
 
-### Шрифты и изображения
+### Шрифты
 
 * [file-loader](https://github.com/webpack-contrib/file-loader) - нужен для того, чтобы webpack мог работать с картинками как с модулями (сканирует все файлы и пытается загрузить их в папку `dist`)
-* [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader) - оптимизация изображения
 
 ### Javascript
 
@@ -93,11 +96,6 @@
   "last 10 versions"
 ],
 ```
-
-#### Cжатие изображений
-
-В файле `webpack.config.json` в опциях loader'а `image-webpack-loader`.
-
 
 #### CopyWebpackPlugin
 
